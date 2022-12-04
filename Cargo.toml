@@ -1,0 +1,9 @@
+[package]
+name = "adventofcode2022"
+description = "Advent of code 2022 challenge solved in Rust https://adventofcode.com/2022"
+version = "0.1.0"
+authors = ["Veaceslav Cotruta <noreply@example.com>"]
+
+[[bin]]
+name = "adventofcode2022"
+path = "src/main.rs"
