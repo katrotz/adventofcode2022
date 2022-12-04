@@ -10,20 +10,20 @@ Find the top three Elves carrying the most Calories. How many Calories are those
 */
 use day_01::challenge_01::get_elves_list;
 
-const MEALS_FIXTURE_PATH: &str = "./src/day_01/fixtures/meals.txt";
+const INPUT_FIXTURE_PATH: &str = "./src/day_01/fixtures/meals.txt";
 
 pub fn solve() {
-    let result = solve_challenge_from_file(MEALS_FIXTURE_PATH);
+    let result = solve_challenge_from_file(INPUT_FIXTURE_PATH);
 
     assert_eq!("211805", result);
 
-    adventofcode2022::print_results(&result, &"01", &"02")
+    adventofcode2022::print_results(&result, "01", "02")
 }
 
 pub fn solve_challenge_from_file(fixture_path: &str) -> String {
     let mut elves = get_elves_list(fixture_path);
 
-    elves.sort_by(|a,b| b.total_calories().cmp(&&a.total_calories()));
+    elves.sort_by_key(|b| std::cmp::Reverse(b.total_calories()));
 
     let total_calories = elves[0].total_calories() + elves[1].total_calories() + elves[2].total_calories(); // TODO How to slice a vector
 

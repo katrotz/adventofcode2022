@@ -33,13 +33,13 @@ Find the item type that appears in both compartments of each rucksack. What is t
 
 use std::collections::HashMap;
 
-const BACKPACKS_FIXTURE_PATH: &str = "./src/day_03/fixtures/backpacks.txt";
+const INPUT_FIXTURE_PATH: &str = "./src/day_03/fixtures/backpacks.txt";
 
 
 pub fn solve() {
-    let result = solve_challenge(BACKPACKS_FIXTURE_PATH);
+    let result = solve_challenge(INPUT_FIXTURE_PATH);
 
-    adventofcode2022::print_results(&result, &"03", &"01")
+    adventofcode2022::print_results(&result, "03", "01")
 }
 
 fn solve_challenge(fixture_path: &str) -> String {

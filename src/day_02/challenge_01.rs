@@ -29,14 +29,14 @@ What would your total score be if everything goes exactly according to your stra
 use std::collections::HashMap;
 use std::string::ToString;
 
-const GAME_FIXTURE_PATH: &str = "./src/day_02/fixtures/game_strategy.txt";
+const INPUT_FIXTURE_PATH: &str = "./src/day_02/fixtures/game_strategy.txt";
 
 pub fn solve() {
-    let result = solve_challenge(GAME_FIXTURE_PATH);
+    let result = solve_challenge(INPUT_FIXTURE_PATH);
 
     assert_eq!("10816", result);
 
-    adventofcode2022::print_results(&result, &"02", &"01")
+    adventofcode2022::print_results(&result, "02", "01")
 }
 
 fn solve_challenge(file_path: &str) -> String {

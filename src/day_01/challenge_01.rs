@@ -56,20 +56,20 @@ impl Elf {
     }
 }
 
-const MEALS_FIXTURE_PATH: &str = "./src/day_01/fixtures/meals.txt";
+const INPUT_FIXTURE_PATH: &str = "./src/day_01/fixtures/meals.txt";
 
 pub fn solve() {
-    let result = solve_challenge(MEALS_FIXTURE_PATH);
+    let result = solve_challenge(INPUT_FIXTURE_PATH);
 
     assert_eq!("72070", result);
 
-    adventofcode2022::print_results(&result, &"01", &"01")
+    adventofcode2022::print_results(&result, "01", "01")
 }
 
 fn solve_challenge(file_path: &str) -> String {
     let elves = get_elves_list(file_path);
 
-    let chubby_elf = elves.iter().max_by(|a,b| a.total_calories().cmp(&&b.total_calories()));
+    let chubby_elf = elves.iter().max_by(|a,b| a.total_calories().cmp(&b.total_calories()));
 
     chubby_elf.unwrap().total_calories().to_string()
 }
@@ -83,7 +83,7 @@ pub fn get_elves_list(file_path: &str) -> Vec<Elf> {
     for wrapped_meal in meals {
         let meal = u32::from_str(&wrapped_meal);
 
-        if meal.is_ok() {
+        if let Ok(..) = meal {
             elves.last_mut().unwrap().add_meal(meal.unwrap())
         } else {
             elves.push(Elf::new())

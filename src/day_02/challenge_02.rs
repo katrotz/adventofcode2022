@@ -13,7 +13,7 @@ Following the Elf's instructions for the second column, what would your total sc
 
 use std::collections::HashMap;
 
-const GAME_FIXTURE_PATH: &str = "./src/day_02/fixtures/game_strategy.txt";
+const INPUT_FIXTURE_PATH: &str = "./src/day_02/fixtures/game_strategy.txt";
 
 const X: i32 = 0; // lose
 const Y: i32 = 3; // draw
@@ -24,11 +24,11 @@ const PAPER: i32 = 2;
 const SCISSORS: i32 = 3;
 
 pub fn solve() {
-    let result = solve_challenge(GAME_FIXTURE_PATH);
+    let result = solve_challenge(INPUT_FIXTURE_PATH);
 
     assert_eq!("11657", result);
 
-    adventofcode2022::print_results(&result, &"02", &"02")
+    adventofcode2022::print_results(&result, "02", "02")
 }
 
 fn solve_challenge(file_path: &str) -> String {

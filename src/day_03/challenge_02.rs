@@ -27,12 +27,12 @@ Find the item type that corresponds to the badges of each three-Elf group. What 
 
 use std::collections::HashMap;
 
-const BACKPACKS_FIXTURE_PATH: &str = "./src/day_03/fixtures/backpacks.txt";
+const INPUT_FIXTURE_PATH: &str = "./src/day_03/fixtures/backpacks.txt";
 
 pub fn solve() {
-    let result = solve_challenge(BACKPACKS_FIXTURE_PATH);
+    let result = solve_challenge(INPUT_FIXTURE_PATH);
 
-    adventofcode2022::print_results(&result, &"03", &"02")
+    adventofcode2022::print_results(&result, "03", "02")
 }
 
 fn solve_challenge(fixture_path: &str) -> String {
@@ -43,7 +43,7 @@ fn solve_challenge(fixture_path: &str) -> String {
     let mut group: Vec<String> = Vec::new();
 
     for rucksack in rucksacks {
-        if rucksack.len() == 0 { continue; }
+        if rucksack.is_empty() { continue; }
 
         group.push(rucksack);
 
@@ -64,14 +64,12 @@ fn solve_challenge(fixture_path: &str) -> String {
     sum.to_string()
 }
 
-fn find_badge(group: &Vec<String>) -> char {
+fn find_badge(group: &[String]) -> char {
     let first_backpack = &group[0];
     let rest_backpacks = &group[1..];
 
     let common_item = first_backpack.chars()
-        .find(|char| !rest_backpacks.iter()
-            .find(|backpack| !backpack.contains(*char))
-            .is_some()
+        .find(|char| !rest_backpacks.iter().any(|backpack| !backpack.contains(*char))
         ).unwrap();
 
     common_item

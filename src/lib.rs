@@ -10,7 +10,8 @@ pub fn print_results(result: &str, day_nr: &str, challenge_nr: &str) {
     println!("{}: {}", challenge_nr, result);
 }
 
-pub fn read_file_to_lines(file_path: &str) -> Map<Lines<BufReader<File>>, fn(Result<String, Error>) -> String> {
+pub type TextFileLinesMap = Map<Lines<BufReader<File>>, fn(Result<String, Error>) -> String>;
+pub fn read_file_to_lines(file_path: &str) -> TextFileLinesMap {
     let file = open_file(file_path).unwrap();
 
     let bufreader = BufReader::new(file);
