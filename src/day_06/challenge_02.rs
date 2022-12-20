@@ -14,8 +14,6 @@ zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw: first marker after character 26
 How many characters need to be processed before the first start-of-message marker is detected?
 */
 
-use std::collections::{HashSet, VecDeque};
-use std::ops::Add;
 use day_06::challenge_01::solve_challenge;
 
 const INPUT_FIXTURE_PATH: &str = "./src/day_06/fixtures/input.txt";
